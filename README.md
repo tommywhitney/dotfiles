@@ -1,6 +1,6 @@
 # dotfiles
 Dotfiles for macos development
 
-## aerospace - [https://github.com/nikitabobko/AeroSpace](https://github.com/nikitabobko/AeroSpace)
+## aerospace - [https://nikitabobko.github.io/AeroSpace/guide](https://nikitabobko.github.io/AeroSpace/guide)
 ## nvim - [https://neovim.io/](https://neovim.io/)
 ## tmux - [https://github.com/tmux/tmux/wiki](https://github.com/tmux/tmux/wiki)

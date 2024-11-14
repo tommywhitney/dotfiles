@@ -182,6 +182,7 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 # automatically assign apps to workspaces
+# use `aerospace list-apps` to list open apps
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
 run = ['layout tiling', 'move-node-to-workspace 1']
@@ -209,3 +210,7 @@ run = ['layout tiling', 'move-node-to-workspace 5']
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = ['layout tiling', 'move-node-to-workspace 7']
+
+[[on-window-detected]]
+if.app-id = 'us.zoom.xos'
+run = ['layout tiling', 'move-node-to-workspace 8']

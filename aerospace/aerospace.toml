@@ -139,6 +139,7 @@ alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-semicolon = 'mode service'
 alt-shift-r = 'mode resize'
 
+# Automatically assign workspaces to monitors
 [workspace-to-monitor-force-assignment]
 1=1
 2=1
@@ -180,7 +181,7 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
-
+# automatically assign apps to workspaces
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
 run = ['layout tiling', 'move-node-to-workspace 1']

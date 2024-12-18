@@ -85,6 +85,7 @@ return {
         filetypes = {
           "css",
           "eruby",
+          "htmldjango",
           "html",
           "javascript",
           "javascriptreact",

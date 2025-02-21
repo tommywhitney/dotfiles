@@ -20,6 +20,7 @@ return {
           "eslint",
           "pyright",
           "ruff",
+          "gopls"
         },
       })
     end,
@@ -101,6 +102,9 @@ return {
           showExpandedAbbreviation = "always",
           showSuggestionsAsSnippets = false,
         },
+      })
+      lspconfig.gopls.setup({
+        capabilities = capabilities,
       })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})

@@ -13,7 +13,7 @@ return {
 					"lua_ls",
 					"html",
 					"cssls",
-					"tsserver",
+					"ts_ls",
 					"svelte",
 					"tailwindcss",
 					"emmet_language_server",
@@ -47,7 +47,7 @@ return {
 				}
 				vim.lsp.buf.execute_command(params)
 			end
-			lspconfig.tsserver.setup({
+			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
         commands = {
           OrganizeImports = {

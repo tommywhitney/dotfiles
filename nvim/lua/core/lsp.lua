@@ -1,12 +1,3 @@
-vim.lsp.enable({
-  "lua_ls",
-  "ts_ls",
-  "emmet_ls",
-  "css_ls",
-  "tailwindcss_ls",
-  "html_ls"
-})
-
 vim.diagnostic.config({
   virtual_lines = true,
   -- virtual_text = true,

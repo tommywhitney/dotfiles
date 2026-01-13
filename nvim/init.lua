@@ -141,18 +141,22 @@ require("conform").setup({
     html = { "prettierd" },
     svelte = { "prettierd" },
   },
-  format_on_save = {
-    timeout_ms = 500,
-    lsp_format = "fallback",
-  }
+  --format_on_save = {
+  --  timeout_ms = 500,
+  --  lsp_format = "fallback",
+  -- }
 })
 
 
 local Snacks = require("snacks")
 Snacks.setup({
   indent = {},
-  picker = {},
-  explorer = {}
+  picker = {
+    hidden = true
+  },
+  explorer = {
+    hidden = true
+  }
 })
 
 vim.keymap.set("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })

@@ -152,7 +152,8 @@ local Snacks = require("snacks")
 Snacks.setup({
   indent = {},
   picker = {
-    hidden = true
+    hidden = true,
+    ignored = true
   },
   explorer = {
     hidden = true

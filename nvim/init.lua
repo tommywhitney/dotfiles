@@ -10,6 +10,7 @@ vim.opt.autoindent = true
 vim.opt.winborder = "rounded"
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.autoread = true
 
 vim.diagnostic.config({
   virtual_lines = true,
@@ -153,10 +154,10 @@ Snacks.setup({
   indent = {},
   picker = {
     hidden = true,
-    ignored = true
   },
   explorer = {
-    hidden = true
+    hidden = true,
+    ignored = true
   }
 })
 

@@ -83,7 +83,8 @@ vim.pack.add({
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/saghen/blink.cmp',
   'https://github.com/folke/snacks.nvim',
-  'https://github.com/stevearc/conform.nvim'
+  'https://github.com/stevearc/conform.nvim',
+  'https://github.com/MeanderingProgrammer/render-markdown.nvim',
 })
 
 require('tokyonight').setup({
@@ -115,10 +116,20 @@ require('mason-tool-installer').setup({
     'ts_ls'
   }
 })
-require('nvim-treesitter.configs').setup({
-  auto_install = true,
-  highlight = { enable = true },
-  indent = { enable = true },
+require('nvim-treesitter').install({
+  'lua', 'vim', 'vimdoc', 'query',
+  'javascript', 'typescript', 'tsx',
+  'html', 'css', 'scss', 'json', 'svelte',
+  'markdown', 'markdown_inline',
+  'bash', 'regex', 'yaml', 'toml',
+})
+vim.api.nvim_create_autocmd('FileType', {
+  callback = function(args)
+    pcall(vim.treesitter.start)
+    pcall(function()
+      vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end)
+  end,
 })
 require("blink.cmp").setup({
   keymap = { preset = 'default' },
@@ -139,6 +150,7 @@ require("conform").setup({
     typescriptreact = { "prettierd" },
     json = { "prettierd" },
     css = { "prettierd" },
+    scss = { "prettierd" },
     html = { "prettierd" },
     svelte = { "prettierd" },
   },

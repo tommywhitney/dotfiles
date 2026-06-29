@@ -1,4 +1,8 @@
+require('vim._core.ui2').enable({})
 vim.g.mapleader = " "
+
+-- Ensure brew bin paths are visible to nvim regardless of how it's launched
+vim.env.PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:' .. (vim.env.PATH or '')
 
 vim.opt.relativenumber = true
 vim.opt.number = true
@@ -36,40 +40,6 @@ vim.diagnostic.config({
   },
 })
 
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
-vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
-vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
-vim.keymap.set("n", "<leader>sk", "10<C-w>>", { desc = "Increase window width" })
-vim.keymap.set("n", "<leader>sj", "10<C-w><", { desc = "Decrease window width" })
-
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
-vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Goto Declaration" })
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-vim.keymap.set("n", "<leader>gf", function()
-  require("conform").format({ async = true })
-end, { desc = "Format" })
-vim.keymap.set("v", "<leader>cl", function() -- console.log("highlightedText:", highlightedText) on new line
-  vim.cmd("normal! y")
-  local reg = vim.fn.getreg('"')
-  vim.api.nvim_feedkeys("oconsole.log('" .. reg .. ":', " .. reg .. ");", "n", false)
-end, { desc = "console.log() highlighted text" })
-vim.keymap.set("n", "<leader>oi", function() -- organize imports
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = { vim.api.nvim_buf_get_name(0) },
-    title = "",
-  }
-  local clients = vim.lsp.get_clients { name = "ts_ls" }
-  if #clients == 0 then
-    vim.notify("No ts_ls client found", vim.log.levels.ERROR)
-    return
-  end
-  local client = clients[1]
-  client:exec_cmd(params)
-  vim.notify("Imports sorted", vim.log.levels.INFO)
-end, { desc = "Organize Imports" })
-
 vim.pack.add({
   'https://github.com/folke/tokyonight.nvim',
   'https://github.com/christoomey/vim-tmux-navigator',
@@ -88,7 +58,7 @@ vim.pack.add({
 })
 
 require('tokyonight').setup({
-  transparent = false
+  transparent = true
 })
 vim.cmd("colorscheme tokyonight")
 require('nvim-autopairs').setup()
@@ -173,6 +143,45 @@ Snacks.setup({
   }
 })
 
+-- Keymaps
+-- Windows / splits
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" })
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+vim.keymap.set("n", "<leader>sk", "10<C-w>>", { desc = "Increase window width" })
+vim.keymap.set("n", "<leader>sj", "10<C-w><", { desc = "Decrease window width" })
+
+-- LSP
+vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "Hover Documentation" })
+vim.keymap.set("n", "<leader>gd", function() Snacks.picker.lsp_definitions() end, { desc = "Goto Definition" })
+vim.keymap.set("n", "<leader>gr", function() Snacks.picker.lsp_references() end, { nowait = true, desc = "References" })
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+vim.keymap.set("n", "<leader>gf", function()
+  require("conform").format({ async = true })
+end, { desc = "Format" })
+vim.keymap.set("v", "<leader>cl", function() -- console.log("highlightedText:", highlightedText) on new line
+  vim.cmd("normal! y")
+  local reg = vim.fn.getreg('"')
+  vim.api.nvim_feedkeys("oconsole.log('" .. reg .. ":', " .. reg .. ");", "n", false)
+end, { desc = "console.log() highlighted text" })
+vim.keymap.set("n", "<leader>oi", function() -- organize imports
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+    title = "",
+  }
+  local clients = vim.lsp.get_clients { name = "ts_ls" }
+  if #clients == 0 then
+    vim.notify("No ts_ls client found", vim.log.levels.ERROR)
+    return
+  end
+  local client = clients[1]
+  client:exec_cmd(params)
+  vim.notify("Imports sorted", vim.log.levels.INFO)
+end, { desc = "Organize Imports" })
+
+-- Snacks
 vim.keymap.set("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
 vim.keymap.set("n", "<C-p>", function() Snacks.picker.smart() end, { desc = "Smart Find Files" })
 vim.keymap.set("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Grep" })

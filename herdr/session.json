@@ -1,0 +1,199 @@
+{
+  "version": 3,
+  "workspaces": [
+    {
+      "id": "w1",
+      "custom_name": null,
+      "identity_cwd": "/Users/tommy/.config",
+      "public_pane_numbers": {
+        "1": 1,
+        "11": 8,
+        "21": 11
+      },
+      "next_public_pane_number": 12,
+      "public_tab_numbers": [
+        1
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "1 - config",
+          "layout": {
+            "Split": {
+              "direction": "Vertical",
+              "ratio": 0.65000004,
+              "first": {
+                "Split": {
+                  "direction": "Horizontal",
+                  "ratio": 0.5,
+                  "first": {
+                    "Pane": 1
+                  },
+                  "second": {
+                    "Pane": 21
+                  }
+                }
+              },
+              "second": {
+                "Pane": 11
+              }
+            }
+          },
+          "panes": {
+            "11": {
+              "cwd": "/Users/tommy/.config",
+              "agent_session": {
+                "source": "herdr:claude",
+                "agent": "claude",
+                "kind": "id",
+                "value": "c206f76e-62e8-4bd9-a9dd-56f40fc27e15"
+              }
+            },
+            "21": {
+              "cwd": "/Users/tommy/.config"
+            },
+            "1": {
+              "cwd": "/Users/tommy/.config"
+            }
+          },
+          "zoomed": true,
+          "focused": 21,
+          "root_pane": 1
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "w2",
+      "custom_name": "forio-website",
+      "identity_cwd": "/Users/tommy/Documents/GitHub/forio-website",
+      "public_pane_numbers": {
+        "8": 1,
+        "10": 3,
+        "9": 2
+      },
+      "next_public_pane_number": 4,
+      "public_tab_numbers": [
+        1
+      ],
+      "next_public_tab_number": 2,
+      "tabs": [
+        {
+          "custom_name": null,
+          "layout": {
+            "Split": {
+              "direction": "Vertical",
+              "ratio": 0.5,
+              "first": {
+                "Pane": 8
+              },
+              "second": {
+                "Split": {
+                  "direction": "Horizontal",
+                  "ratio": 0.39999998,
+                  "first": {
+                    "Pane": 9
+                  },
+                  "second": {
+                    "Pane": 10
+                  }
+                }
+              }
+            }
+          },
+          "panes": {
+            "9": {
+              "cwd": "/Users/tommy/Documents/GitHub/forio-website"
+            },
+            "10": {
+              "cwd": "/Users/tommy/Documents/GitHub/forio-website",
+              "agent_session": {
+                "source": "herdr:claude",
+                "agent": "claude",
+                "kind": "id",
+                "value": "ef2dc23d-945c-4678-a424-f7de72b7206f"
+              }
+            },
+            "8": {
+              "cwd": "/Users/tommy/Documents/GitHub/forio-website"
+            }
+          },
+          "zoomed": false,
+          "focused": 10,
+          "root_pane": 8
+        }
+      ],
+      "active_tab": 0
+    },
+    {
+      "id": "w3",
+      "custom_name": null,
+      "identity_cwd": "/Users/tommy/Documents/GitHub/wharton-edp-v3",
+      "public_pane_numbers": {
+        "17": 5,
+        "16": 4,
+        "13": 1
+      },
+      "next_public_pane_number": 7,
+      "public_tab_numbers": [
+        1,
+        2
+      ],
+      "next_public_tab_number": 3,
+      "tabs": [
+        {
+          "custom_name": "1 - nvim",
+          "layout": {
+            "Split": {
+              "direction": "Vertical",
+              "ratio": 0.65000004,
+              "first": {
+                "Pane": 13
+              },
+              "second": {
+                "Pane": 16
+              }
+            }
+          },
+          "panes": {
+            "13": {
+              "cwd": "/Users/tommy/Documents/GitHub/wharton-edp-v3"
+            },
+            "16": {
+              "cwd": "/Users/tommy/Documents/GitHub/wharton-edp-v3",
+              "agent_session": {
+                "source": "herdr:claude",
+                "agent": "claude",
+                "kind": "id",
+                "value": "51025f28-7779-4483-b0b3-6bbeab3e0dcf"
+              }
+            }
+          },
+          "zoomed": false,
+          "focused": 16,
+          "root_pane": 13
+        },
+        {
+          "custom_name": "2 - server",
+          "layout": {
+            "Pane": 17
+          },
+          "panes": {
+            "17": {
+              "cwd": "/Users/tommy/Documents/GitHub/wharton-edp-v3"
+            }
+          },
+          "zoomed": false,
+          "focused": 17,
+          "root_pane": 17
+        }
+      ],
+      "active_tab": 0
+    }
+  ],
+  "active": 0,
+  "selected": 0,
+  "sidebar_width": 26,
+  "sidebar_section_split": 0.5,
+  "collapsed_space_keys": []
+}
